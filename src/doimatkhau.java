@@ -37,7 +37,7 @@ public class doimatkhau extends HttpServlet {
             boolean checkMail = false;
             boolean checkMaxacnhan = false;
             //truy xuất database
-            String sql = "SELECT \"quenmatkhau\".maxacthuc FROM \"quenmatkhau\" WHERE maxacthuc =?";
+            String sql = "SELECT quenmatkhau.maxacthuc FROM quenmatkhau WHERE maxacthuc =?";
             PreparedStatement s = DBConnection.getPreparedStatement(sql);
             s.setString(1,maxacthuc);
             ResultSet rs = s.executeQuery();
@@ -87,7 +87,7 @@ public class doimatkhau extends HttpServlet {
             //nếu tất cả thông tin nhập vào đều hợp lệ
             if (checkMail==true&&checkMatKhau==true&&checkMatKhauCon==true&&checkMaxacnhan==true){
                 //thì lưu pass mới vào database
-                String query = "UPDATE \"user\" SET \"user\".pass=? WHERE \"user\".email=?";
+                String query = "UPDATE `user` SET `user`.pass=? WHERE `user`.email=?";
                 PreparedStatement ps = DBConnection.getPreparedStatement(query);
                 ps.setString(1,pass);
                 ps.setString(2,email);

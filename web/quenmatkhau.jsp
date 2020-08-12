@@ -49,8 +49,6 @@
                 <div class="alert-danger">
                     <%=erremail == null ? "" : erremail%>
                 </div>
-
-
                 <div class="wrap-input100 validate-input" data-validate="Valid email is required: ex@abc.xyz">
                     <input class="input100" type="text" name="email" value="<%=email==null?"":email%>">
                     <span class="focus-input100"></span>

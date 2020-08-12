@@ -51,34 +51,28 @@
 					</span>
 
                 <div class="alert-danger">
-                    <%=erremail == null ? "" : erremail%>
-                </div>
+                <%=erremail == null ? "" : erremail%>
+            </div>
                 <div class="wrap-input100 validate-input" >
                     <input class="input100" type="text" name="email" value="<%=email==null?"":email%>">
                     <span class="focus-input100"></span>
                     <span class="label-input100">Email</span>
 
                 </div>
-
                 <div class="alert-danger">
                     <%=errpass == null ? "" : errpass%>
                 </div>
-
                 <div class="wrap-input100 validate-input" >
-
-                    <input class="input100" type="password" name="pass" >
+                    <input class="input100" type="password" name="password" value="">
                     <span class="focus-input100"></span>
                     <span class="label-input100">Mật khẩu mới</span>
 
                 </div>
-
                 <div class="alert-danger">
                     <%=errmatkhaucon == null ? "" : errmatkhaucon%>
                 </div>
-
                 <div class="wrap-input100 validate-input" >
-
-                    <input class="input100" type="password" name="repass" >
+                    <input class="input100" type="password" name="repass" value="">
                     <span class="focus-input100"></span>
                     <span class="label-input100">Nhập lại mật khẩu</span>
 

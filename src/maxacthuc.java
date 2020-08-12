@@ -34,7 +34,7 @@ public class maxacthuc extends HttpServlet {
             //tạo mã xác thực
             int maxacthuc = (int) Math.floor(((Math.random() * 899999) + 10000000));
             //kiểm tra email đã được đăng ký chưa
-            String sqlcheckExitsMail = "SELECT \"user\".email FROM \"user\" WHERE email=?";
+            String sqlcheckExitsMail = "SELECT `user`.email FROM `user` WHERE email=?";
             String errmail = "";
             String regexMail = "^[\\w!#$%&'*+/=?`{|}~^-]+(?:\\.[\\w!#$%&'*+/=?`{|}~^-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,6}$";
             Pattern paMail = Pattern.compile(regexMail);
@@ -55,7 +55,7 @@ public class maxacthuc extends HttpServlet {
             }
             if (checkMail == true) {//email đã được đăng ký trong tài khoản
                 //kiểm tra email có trong database forgotpass chưa
-                String sqlCheckForgot = "SELECT \"quenmatkhau\".email FROM \"quenmatkhau\" WHERE email=?";
+                String sqlCheckForgot = "SELECT quenmatkhau.email FROM quenmatkhau WHERE email=?";
                 PreparedStatement psCheckForgot = DBConnection.getPreparedStatement(sqlCheckForgot);
                 psCheckForgot.setString(1, email);
                 ResultSet rsCheckForgot = psCheckForgot.executeQuery();
@@ -78,7 +78,7 @@ public class maxacthuc extends HttpServlet {
                     long millis = System.currentTimeMillis();
                     java.sql.Date date = new java.sql.Date(millis);
                     //update lại thông tin email đó
-                    String sqlUpdateforgot = "UPDATE \"CNPM\".quenmatkhau SET \"quenmatkhau\".maxacthuc=?, \"quenmatkhau\".ngay=? WHERE \"quenmatkhau\".email=?";
+                    String sqlUpdateforgot = "UPDATE project.quenmatkhau SET quenmatkhau.maxacthuc=?, quenmatkhau.ngay=? WHERE quenmatkhau.email=?";
                     PreparedStatement psUpdateforgot = DBConnection.getPreparedStatement(sqlUpdateforgot);
                     psUpdateforgot.setInt(1, maxacthuc);
                     psUpdateforgot.setDate(2, date);
